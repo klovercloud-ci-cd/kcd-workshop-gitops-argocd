@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  generateName: app-slack-notification-
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+spec:
+  template:
+    spec:
+      containers:
+        - name: kcd-notify
+          image: curlimages/curl
+          command:
+            - "curl"
+            - "-X"
+            - "POST"
+            - "http://kcd-notify.demo:8080/api/notify?message=AppSyncSucceeded"
+      restartPolicy: Never
+  backoffLimit: 2

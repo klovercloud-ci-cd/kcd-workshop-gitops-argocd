@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kcd-notify
+spec:
+  destination:
+    name: ''
+    namespace: demo
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: kubernetes/manifests
+    repoURL: 'https://github.com/shaekhhasanshoron/kcd-notify-app'
+    targetRevision: HEAD
+  sources: []
+  project: default
+  syncPolicy:
+    automated: null
+    syncOptions:
+      - CreateNamespace=true
