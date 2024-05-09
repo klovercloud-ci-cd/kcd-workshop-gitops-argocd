@@ -153,10 +153,9 @@ We will set different roles to project.
 
 ### Task 7 - Add a Git repositories 
 
-We will add a git repo in ArgoCD git repo list. We will add [kcd-notify-app](https://github.com/shaekhhasanshoron/kcd-notify-app) repo. This is a private repository,
-we will need to attach the creds to it. Run the following command. Here, you will attach token instead of password.
+We will add a git repo in ArgoCD git repo list. We will add [kcd-notify-app](https://github.com/shaekhhasanshoron/kcd-notify-app) repo. Run the following command. Here, you will attach token instead of password.
 ```
-argocd repo get https://github.com/shaekhhasanshoron/kcd-notify-app --username <USERNAME> --password <PASSWORD>
+argocd repo get https://github.com/shaekhhasanshoron/kcd-notify-app
 ```
 
 Now check the repo list.
